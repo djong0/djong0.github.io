@@ -90,11 +90,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="this-is-first-blog"><a href="#this-is-first-blog" class="headerlink" title="this is first blog"></a>this is first blog</h3>
+        <h1 id="http-protocol"><a href="#http-protocol" class="headerlink" title="http protocol"></a>http protocol</h1><pre><code>* 实体层： 电器特性，传输0和1
+* 链接层：
+    * 确定分组0和1的分组方式。
+    * 标头固定18字节，数据长度为46 到 1500；这组电信号叫做“帧”。
+    * 标头包含了发送者和接受者的信息。通过网卡的MAC地址来识别谁是谁。
+    * MAC地址为48个二进制位，用12个十六进制数来表示 AA-BB-CC-DD-EE-DD。前六个厂商号，后六个位流水号
+    * ARP协议来找到另一块网卡MAC地址。
+    * 广播发送消息，接收方自己识别是否是发给自己的信息。
+* 网络层
+    * 网络地址（IP协议）帮助来识别互联网上每一个子网地址。
+    * IP地址由32个二进制数组成。
+    * IP地址分为网络部分，和主机部分。
+    * 子网掩码用来区分网络部分和主机部分。网络部分位数为1，主机部分为0。
+    * IP数据包，分为标头：版本，长度，IP地址等信息；数据部分为具体内容。IP数据包属于以太网数据包部分。
+    * IP数据包标头长度为20 - 60。理论支持数据包的总长度为65535。但以太网卡仅支持1500，所以IP数据包的数据部分长度超过（ 1518 - 18 - 60 = 1440 - 1480）需要分段发送。
+    * ARP协议：不同子网络，网管处理找寻MAC地址。同一子网络，广播ARP协议数据包，包含对方IP地址，和对方MAC地址 （FF:FF:FF:FF:FF:FF MAC地址栏 表示广播地址）。由接收方报告自己所在位置。
+* 传输层
+    * 同一机器，不同程序所得到数据包的方式是通过不同端口。
+    * 端口是 0 - 65535，16个二进制位。0 - 1023 被系统占用。用户只能选择大于1023 的端口。
+    * Unix系统把 主机 + 端口 叫做套接字。
+* UDP协议
+    * udp标头有8个字节。1440 - 8 = 1432 - 1472
+* TCP协议
+    * 有确认机制的UDP协议
+* 应用层
+    传输层定义各种协议
+    最终数据包格式：以太网标头-IP标头-TCP标头-应用层数据包
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="hhttps://djwind.github.io/2017/03/22/firstPages/" data-id="cj0js608a0000sxj7v0nvf1ju" class="article-share-link">Share</a>
+      <a data-url="hhttps://djwind.github.io/2017/03/22/firstPages/" data-id="cj0tni36r0000huj7c6gb6fe9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -139,7 +166,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="hhttps://djwind.github.io/2017/03/21/hello-world/" data-id="cj0js608i0001sxj7zsuqq1a6" class="article-share-link">Share</a>
+      <a data-url="hhttps://djwind.github.io/2017/03/21/hello-world/" data-id="cj0tni36v0001huj7rn1slod0" class="article-share-link">Share</a>
       
       
     </footer>
